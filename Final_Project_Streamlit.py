@@ -220,7 +220,7 @@ def page_data_table3():
     st.write("Total Weight Lifted vs. Nutrition Scatter Plot by State")
     st.scatter_chart(data=grouped_df, x='AvgTotalKg', y=nutrient_input, use_container_width=True)
 
-    st.bar_chart(data=groupd_df, x='MeetState', y='AvgTotalKg', use_container_width=True)
+    st.bar_chart(data=grouped_df, x='MeetState', y='AvgTotalKg', use_container_width=True)
 
 # For choosing pages
 page = st.sidebar.selectbox("Choose a Page", ["Introduction", "Data Analysis Results", "Data Table 1", "Data Table 2", "Data Table 3"])
