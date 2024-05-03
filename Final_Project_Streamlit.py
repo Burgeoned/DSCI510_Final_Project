@@ -10,7 +10,9 @@ def page_intro():
     st.write("2. An explanation of how to use your webapp: what interactivity there is, what the plots/charts mean, what your conclusions were, etc.: ")
     st.write("The web app I built features two final compacted dataframes. The first page compares either the squat/bench/deadlift/total to the average macronutrient density of a fastfood chain's menu. The second page does something similar, but compares the dots score instead. For context, dots score is another rating for powerlifting that accounts for the lifter's bodyweight relative to the total weight they moved.")
     st.write("My app also offers some interactivity with filters on the sidebar. Some of it just to trim down the datasize to look at certain populations, while I also have filters for choosing a specific powerlifting movement vs. a specific macronutrient so that the user can dive into more specifics rather than an overarching view. ")
-
+    st.write("The interactivity allows the user to look at specific components of data on each page. On chart page 1, we have the dataset grouped by proximity to Fast Food Chains. The user could see if there are any differences across squat/bench/deadlit/total or if maybe gender has an impact on performance relative to the fast food chains.")
+    st.write("The second chart page is very similar in interactivity, but takes the dots score as a comparison instead of a particular lift(dot score is a rating relative to body weight). Both of these pages also still offer other filters like whether it was a drug tested meet or if it was a raw/equipped meet.")
+    st.write("The final page is the dataset but broken down instead by state. I thought this would just be interesting to see how performance in strength may have varied across different states.")
     st.write("3. Major Gotchas: ")
     st.write("I think the toughest component of the project for me was webscraping as a whole without much experience prior in html. I think the prior lab we had done on webscraping really undersold how tough it would actually be-- working with a website designed to be scraped is far, and I mean far easier than a site that does not want to be scraped.")
     st.write("I also started my project with a much larger scope not realizing how difficult that would be with my current skills with coding/data science. I wanted to cover all restaurants which would have been nearly impossible to get menus to tie together for each location.")
@@ -23,6 +25,7 @@ def page_data_analysis():
     st.title("Page 2: Data Analysis")
     st.write("1. What did you set out to study?  (i.e. what was the point of your project?  This should be close to your Milestone 1 assignment, but if you switched gears or changed things, note it here.): ")
     st.write("My data analysis was designed to study a correlational relationship between available fast food chains and a strength sport (powerlifting). I started with wanting to look at availability of all foods within a competition's area, but it was simply too hard to aggregate all the possible menus across the restaurants all over the United States. I determined the most 'available' fast food chain in each area by counting the number of them, and then chose the one with the most reviews if there was a tie for count. To delve deeper into nutritional impact of fast food availability, I webscraped fast food nutritional data to see if that had any impact on the trends noticed.")
+    st.write("One of the main assumptions was that people were very likely to eat out because of traveling to different locations. Fast food is the most consistent across many different areas, so I hypothesized that competitors had a high likeliness to eat at fastfood restaurants during or around the time of their meet. I wanted to explore if there was any potential correlation of this with their actual strength performance on meet day.")
     st.write("2. What did you Discover/what were your conclusions (i.e. what were your findings?  Were your original assumptions confirmed, etc.?): ")
     st.write("My original assumption was that areas with higher protein fast foods might would have higher powerlifting totals or dot scores because of the link between protein and muscle building as well as powerlifters being notoriously known as strong people with bad diets (hence why they can't do bodybuilding)")
     st.write("My data shows that powerlifting as a sport seems to have increased in general strength/avg strenth over the years, but no correlation was shown in regards to a correlation to the most available fast food to a certain meet location. My original assumptions proved to be untrue.")
@@ -37,7 +40,7 @@ def page_data_analysis():
     st.write("As I had mentioned in my gotchas, I wish I had much more experience with webscraping. I did not realize how many websites in the modern day and age are actively working against you to be webscraped. While I understand why they choose to protect their sites in that manner, the modern environment does make it a little bit tougher for new learners to actually learn and practice webscraping. I though webscraping was a simple task from the labs until I had to really try and webscrape for this project.")
     st.write("5. What would you do “next” to expand or augment the project?: ")
     st.write("My current project looks at nutritional data and performs an analysis based on the average values. To expand on this project, I would love to have either data on specific athlete training cycles or the actual frequency of certain items being ordered at each individual fast food chain. The first augment would just purely be for my interest on maybe most effective ways to strength train, while the second augment I mentioned could help dial in on the fast food further and make adjustments to the weight of different food items based on how often they are ordered relative to other food items instead of averaging (which assumes the distribution of ordering is uniform).")
-
+    ste.write("I think as I get more experienced with data science, I could actually recyle the dataset to also predict maybe which competitors are likely to place or win in the larger meets like Sheffield. It would be interesting to apply data science techniques to make models predicing performance and meet outcomes.")
 
 def get_state_options():
     df = pd.read_csv('powerlifting_data_shrunk.csv')
@@ -221,6 +224,7 @@ def page_data_table3():
     st.scatter_chart(data=grouped_df, x='AvgTotalKg', y=nutrient_input, use_container_width=True)
 
     # Bar chart to compare total weight lifted by state
+    st.write("Total Weight Lifted by State")
     st.bar_chart(data=grouped_df, x='MeetState', y='AvgTotalKg')
 
 # For choosing pages
