@@ -102,7 +102,8 @@ def page_data_table1():
     st.write(grouped_df)
 
     #plot 1 comparing nutrients to lifting
-
+    st.write("Weight lifted vs. Nutrition Scatter Plot")
+    st.scatter_chart(data=grouped_df, x=lifts_input, y=nutrient_input, use_container_width=True)
 
 def page_data_table2():
     # parameters for my sidebar based on dataset
