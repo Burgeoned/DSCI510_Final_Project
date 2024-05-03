@@ -103,12 +103,7 @@ def page_data_table1():
     st.write(grouped_df)
 
     #plot 1 comparing nutrients to lifting
-    fig, ax = plt.subplots()
-    ax.scatter(grouped_df[lifts_input], grouped_df[nutrient_input])
-    ax.set_xlabel(f'{lifts_input}')
-    ax.set_ylabel(f'{nutrient_input}')
-    ax.set_title(f'{nutrient_input} vs.{lifts_input}')
-    st.pyplot(fig)
+
 
 def page_data_table2():
     # parameters for my sidebar based on dataset
@@ -163,12 +158,7 @@ def page_data_table2():
     st.write(grouped_df)
 
     # plot of nutrients vs Average Dots
-    fig, ax = plt.subplots()
-    ax.scatter(grouped_df['AvgDots'], grouped_df[nutrient_input])
-    ax.set_xlabel('Average Dots')
-    ax.set_ylabel(f'{nutrient_input}')
-    ax.set_title(f'{nutrient_input} vs. Average Dots')
-    st.pyplot(fig)
+
 
 def page_data_table3():
     # parameters for the sidebar based on dataset
