@@ -226,12 +226,8 @@ def page_data_table3():
     st.write(grouped_df)
 
     # Plot to compare weight to nutrients, except grouped by state average
-    fig, ax = plt.subplots()
-    ax.scatter(grouped_df['AvgTotalKg'], grouped_df[nutrient_input])
-    ax.set_xlabel('Average Total Weight Lifted (kg)')
-    ax.set_ylabel(f'{nutrient_input}')
-    ax.set_title(f'{nutrient_input} vs. Average Total Weight Lifted')
-    st.pyplot(fig)
+    st.write(f"## Scatter plot of Average {nutrient_input} vs. Average Total Weight Lifted")
+    st.write(grouped_df.plot.scatter(x='AvgTotalKg', y=nutrient_input, title=f'Average {nutrient_input} vs. Average Total Weight Lifted'))
 
 
 # For choosing pages
