@@ -217,7 +217,7 @@ def page_data_table3():
     st.write(grouped_df)
 
     # Plot to compare weight to nutrients, except grouped by state average
-    st.write("Total Vs Weight Lifted Scatter Plot by State")
+    st.write("Total Weight Lifted vs. Nutrition Scatter Plot by State")
     st.scatter_chart(data=grouped_df, x='AvgTotalKg', y=nutrient_input, use_container_width=True)
 
     st.bar_chart(data=groupd_df, x='MeetState', y='AvgTotalKg', use_container_width=True)
