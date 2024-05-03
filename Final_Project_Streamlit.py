@@ -216,7 +216,10 @@ def page_data_table3():
     st.write(grouped_df)
 
     # Plot to compare weight to nutrients, except grouped by state average
+    st.write("Weight lifted vs. Nutrition Scatter Plot")
+    st.scatter_chart(data=grouped_df, x=lifts_input, y=nutrient_input, use_container_width=True)
 
+    st.bar_chart(data=groupd_df, x='MeetState', y=lifts_input, use_container_width=True)
 
 # For choosing pages
 page = st.sidebar.selectbox("Choose a Page", ["Introduction", "Data Analysis Results", "Data Table 1", "Data Table 2", "Data Table 3"])
